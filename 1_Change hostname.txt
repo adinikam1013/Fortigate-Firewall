@@ -1,0 +1,16 @@
+Method 1: GUI Configuration
+============================================
+Step 1: Log in to the FortiGate GUI
+Step 2: Navigate to System Settings
+	System → Settings
+	Dashboard → Status
+Step 3: Edit the Hostname
+Step 4: Save the Configuration
+	Click: Apply
+
+Method 2: CLI Configuration
+============================================
+config system global
+set hostname INMUMSEFW001
+end
+
