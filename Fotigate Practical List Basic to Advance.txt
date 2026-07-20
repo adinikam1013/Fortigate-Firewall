@@ -1,0 +1,149 @@
+Phase 1 → FortiGate Basics (Labs 1-20)
+Goal: Become comfortable with the GUI and CLI.
+
+Initial setup
+Factory reset
+Change hostname
+Configure admin password
+Configure int
+erfaces
+Static IP configuration
+DHCP Server
+DHCP Relay
+DNS configuration
+Default route
+Static routing
+Backup & Restore configuration
+Firmware upgrade (practice only)
+CLI navigation
+Ping & Traceroute
+Packet Capture
+ARP table
+MAC table
+Interface monitoring
+System logs
+
+Phase 2 → Firewall Policies (Labs 21-40)
+Allow LAN to Internet
+Deny policy
+Policy ordering
+Service objects
+Address objects
+Address groups
+Schedule policy
+NAT policy
+VIP (Port Forwarding)
+One-to-One NAT
+SNAT
+DNAT
+Central NAT
+Internet access without NAT
+Hairpin NAT
+Logging policies
+Implicit deny
+IPv6 policy
+Internet service database
+Policy troubleshooting
+
+Phase 3 → VLAN & Switching (Labs 41-55)
+Add a Cisco Layer 3 switch such as Cisco IOSvL2/IOSv in EVE-NG.
+VLAN creation
+Trunk configuration
+Access ports
+Inter-VLAN routing
+FortiGate as Gateway
+FortiSwitch concepts
+Multiple VLANs
+Native VLAN
+VLAN tagging
+DHCP per VLAN
+Firewall policy between VLANs
+Guest VLAN
+Voice VLAN
+VLAN troubleshooting
+Packet flow verification
+
+Phase 4 → Routing (Labs 56-70)
+Static routing
+Floating route
+ECMP
+Policy route
+SD-WAN basics
+OSPF
+OSPF authentication
+OSPF over VPN
+BGP basics
+BGP neighbor
+BGP advertise network
+Route maps
+Prefix list
+Blackhole route
+Routing troubleshooting
+
+Phase 5 → VPN (Labs 71-82)
+
+This is one of the most important sections for enterprise work.
+
+Site-to-Site IPsec
+Dial-up VPN
+Remote Access VPN
+SSL VPN
+Split Tunnel
+Full Tunnel
+IPsec using FQDN
+IPsec using DDNS
+ADVPN basics
+Hub-and-Spoke VPN
+Dual ISP VPN
+VPN troubleshooting
+
+Phase 6 → Security (Labs 83-92)
+Web Filter
+DNS Filter
+Antivirus
+IPS
+Application Control
+SSL Inspection
+Deep Inspection
+DoS Policy
+Local Users
+User Groups
+
+Phase 7 → High Availability & SD-WAN (Labs 93-97)
+HA Active-Passive
+HA Failover
+SD-WAN with 2 ISPs
+SLA Monitoring
+Link Failover
+
+Phase 8 → Enterprise Troubleshooting (Labs 98-100)
+Packet Flow Debug
+Practice:
+diagnose debug flow
+diagnose sniffer packet
+diagnose vpn tunnel list
+diagnose sys session list
+End-to-End Enterprise Lab
+
+Build a network with:
+
+3 Branches
+1 HQ
+2 ISPs
+VPN
+VLANs
+OSPF
+Internet
+Real Interview Scenario
+
+Simulate issues such as:
+VPN Down
+Internet Down
+VLAN Not Working
+DHCP Failure
+DNS Failure
+IPS Blocking Traffic
+NAT Issues
+Asymmetric Routing
+MTU Problems
+Packet Drops
