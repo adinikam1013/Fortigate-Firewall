@@ -1,0 +1,87 @@
+Interface Types
+| Interface Type          | Description                                                                      | Example Use             |
+| ----------------------- | -------------------------------------------------------------------------------- | ----------------------- |
+| **Physical Interface**  | Actual Ethernet ports on the FortiGate.                                          | port1, port2            |
+| **VLAN Interface**      | Virtual interface created on a physical interface using an IEEE 802.1Q VLAN tag. | VLAN 10, VLAN 100       |
+| **Loopback Interface**  | Logical interface that is always up.                                             | Router ID, VPN endpoint |
+| **Aggregate Interface** | Combines multiple physical ports for higher bandwidth and redundancy (LACP).     | Server uplinks          |
+| **Software Switch**     | Groups multiple ports into a Layer 2 switch.                                     | LAN ports               |
+| **Hardware Switch**     | Built-in switch interface on supported FortiGate models.                         | Branch office LAN       |
+| **Tunnel Interface**    | VPN interface (IPsec or SSL VPN).                                                | Site-to-Site VPN        |
+| **EMAC VLAN**           | MAC-VLAN interface used in advanced deployments.                                 | Multi-tenant networks   |
+| **WiFi Interface**      | Wireless interface on FortiWiFi models.                                          | Wireless LAN            |
+| **FortiLink Interface** | Used to manage FortiSwitch devices.                                              | Switch management       |
+
+GUI -Physical Interface 
+===================================================
+Step 1 Log in to the FortiGate GUI.
+Step 2 Navigate to: Network → Interfaces
+Step 3 Select the interface (e.g., port1) and click Edit.
+Step 4 Configure the following settings:	
+	Interface Name : port1
+	Alias          : LAN
+	Role           : LAN
+	Addressing Mode: Manual
+	IP Address     : 192.168.10.1/24
+
+Step 5 Enable Administrative Access(As per your need)
+	HTTPS
+	PING
+	SSH
+	HTTP
+	SNMP
+	FMG Access
+
+CLI
+config system interface
+    edit "port1"
+        set alias "LAN"
+        set role lan
+        set ip 192.168.10.1 255.255.255.0
+        set allowaccess ping https ssh
+    next
+end
+
+GUI -Vlan Interface 
+===================================================
+Step 1 Log in to the FortiGate GUI.
+Step 2 Navigate to: Network → Interfaces
+Step 3 Select the interface (e.g., port1) and click Edit.
+Step 4 Configure the following settings:	
+	Name            : VLAN10
+	Type            : VLAN
+	Interface       : port2
+	VLAN ID         : 10
+	VLAN Protocol   :802.1Q
+	Interface	:port2 (or the parent interface connected to the switch)
+	Role            : LAN
+	
+
+Step 5 Configure Address
+	IP/Netmask      | 192.168.10.1/24 |
+
+
+Step 6 Administrative Access
+	HTTPS
+	PING
+	SSH
+	HTTP
+	SNMP
+	FMG Access
+
+CLI
+config system interface
+    edit "vlan10"
+        set vdom "root"
+        set interface "port2"
+        set vlanid 10
+        set alias "VLAN10"
+        set role lan
+        set ip 192.168.20.1 255.255.255.0
+        set allowaccess ping https ssh
+    next
+end
+
+
+GUI -Vlan Interface 
+====================================================================
