@@ -1,0 +1,47 @@
+Method 1: GUI Configuration
+============================================
+Step 1: Log in to the FortiGate GUI
+Step 2: Navigate to Administrators (System → Administrators)
+Step 3: Click Create New → Administrator
+Step 4: Configure the administrator
+	Example:
+	Administrator Name : Suraj_Admin
+	Type               : Local User
+	Password           : Asdfghjkl@123
+	Confirm Password   : Asdfghjkl@123
+	Administrator Profile : super_admin
+	(Optional)
+		Trusted Hosts
+		Two-Factor Authentication (2FA)
+Step 5: Click OK or Apply
+
+Method 2: CLI Configuration
+============================================
+Create a new Super Admin:
+
+config system admin
+edit Suraj_Admin
+set password Asdfghjkl@123
+set accprofile super_admin
+next
+end
+
+
+====================================================
+You can create your own profile with only the permissions you want.
+Example:
+config system accprofile
+edit L1_Engineer
+set fwgrp read-write
+set sysgrp read
+set netgrp read-write
+set loggrp read
+next
+end
+
+| Profile                                          | Description                                                         | Typical Use                         |
+| ------------------------------------------------ | ------------------------------------------------------------------- | ----------------------------------- |
+| **super_admin**                                  | Full access to all FortiGate features and settings.                 | Network/Security Administrator      |
+| **prof_admin**                                   | Uses a **custom administrator profile** with specific permissions.  | L2/L3 Engineers, NOC, Security Team |
+| **super_read_only**                              | Read-only access to all settings. No configuration changes allowed. | Auditors, Managers                  |
+| **read_only** *(if available or custom-created)* | Limited read-only access to selected features.                      | Monitoring users                    |
