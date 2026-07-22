@@ -1,0 +1,71 @@
+Configure DHCP Server
+============================================
+Step 1: Log in to the FortiGate GUI
+Step 2: Navigate to Network → Interfaces
+Step 3: Select the interface (Example: port1) and click Edit
+Step 4: Configure the interface
+	Example:
+	Interface Name    : port1
+	Alias             : LAN
+	Role              : LAN
+	Addressing Mode   : Manual
+	IP Address        : 192.168.10.1/24
+Step 5: Enable Administrative Access
+	✔ HTTPS
+	✔ SSH
+	✔ PING
+	(Optional)
+	✔ HTTP
+	✔ SNMP
+	✔ FMG Access
+
+Step 6: Enable DHCP Server
+	Example:
+	DHCP Server      : Enable
+	IP Range Start   : 192.168.10.100
+	IP Range End     : 192.168.10.200
+	Subnet Mask      : 255.255.255.0
+	Default Gateway  : 192.168.10.1
+	DNS Server	 : Primary DNS      : 8.8.8.8
+			   Secondary DNS    : 8.8.4.4
+	Lease Time       : 86400 Seconds (1 Day)
+	
+Step 6: Click OK or Apply
+
+CLI
+================================================================
+
+
+config system interface
+edit "port1"
+set mode static
+set ip 192.168.10.1 255.255.255.0
+set allowaccess ping https ssh http
+set alias "LAN"
+set role lan
+next
+end
+
+config system dhcp server
+edit 1
+set interface "port1"
+set default-gateway 192.168.10.1
+set netmask 255.255.255.0
+set dns-service default
+set lease-time 86400
+
+config ip-range
+edit 1
+set start-ip 192.168.10.100
+set end-ip 192.168.10.200
+next
+end
+
+config system dhcp server
+edit 1
+set vci-match disable
+next
+end
+
+next
+end
