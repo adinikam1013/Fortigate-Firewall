@@ -1,0 +1,35 @@
+GUI : Configure Static IP Address
+============================================
+Step 1: Log in to the FortiGate GUI
+Step 2: Navigate to Network → Interfaces
+Step 3: Select the interface (Example: port1) and click Edit
+Step 4: Configure the interface
+	Example:
+	Interface Name    : port1
+	Alias             : LAN
+	Role              : LAN
+	Addressing Mode   : Manual
+	IP Address        : 192.168.10.1/24
+Step 5: Enable Administrative Access
+	✔ HTTPS
+	✔ SSH
+	✔ PING
+	(Optional)
+	✔ HTTP
+	✔ SNMP
+	✔ FMG Access
+
+Step 6: Click OK or Apply
+
+CLI
+============================================
+
+config system interface
+edit "port1"
+set alias "LAN"
+set role lan
+set mode static
+set ip 192.168.10.1 255.255.255.0
+set allowaccess ping https ssh
+next
+end
