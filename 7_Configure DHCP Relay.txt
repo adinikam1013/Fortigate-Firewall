@@ -1,0 +1,44 @@
+Configure DHCP Relay
+============================================
+
+Step 1: Log in to the FortiGate GUI
+Step 2: Navigate to Network → Interfaces
+Step 3: Select the interface (Example: port1) and click Edit
+Step 4: Configure the interface
+	Example:
+	Interface Name    : port1
+	Alias             : LAN
+	Role              : LAN
+	Addressing Mode   : Manual
+	IP Address        : 192.168.10.1/24
+Step 5: Enable Administrative Access
+	✔ HTTPS
+	✔ SSH
+	✔ PING
+	(Optional)
+	✔ HTTP
+	✔ SNMP
+	✔ FMG Access
+Step 6: Disable Local DHCP Server (if enabled)
+	DHCP Server : Disable
+	Note: An interface cannot act as both a DHCP Server and a DHCP Relay.
+
+Step 7: Enable DHCP Relay
+	DHCP Relay        : Enable
+	DHCP Server IP    : 192.168.20.10
+	Replace 192.168.20.10 with the IP address of your remote DHCP Server.
+Step 8: Click OK or Apply
+
+CLI
+================================================
+config system interface
+edit port1
+set mode static
+set ip 192.168.10.1 255.255.255.0
+set alias "LAN"
+set role lan
+set allowaccess ping https ssh http
+set dhcp-relay-service enable
+set dhcp-relay-ip 192.168.20.10
+next
+end
