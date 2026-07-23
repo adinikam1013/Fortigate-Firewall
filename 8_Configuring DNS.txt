@@ -1,0 +1,26 @@
+Configuring DNS 
+==============================================================
+Step 1: Log in to the FortiGate GUI
+Step 2: Navigate to Network → DNS
+Step 3: Configure DNS Servers->Specify
+	Primary DNS Server   : 8.8.8.8
+	Secondary DNS Server : 8.8.4.4
+	DNS Protocol : UDP
+Step 4: Click Apply
+
+CLI
+================================================================
+config system dns
+set primary 8.8.8.8
+set secondary 8.8.4.4
+end
+
+config system dns
+set primary 8.8.8.8
+set secondary 8.8.4.4
+end
+
+Check DNS Resolution
+execute ping google.com
+or
+execute ping www.fortinet.com
