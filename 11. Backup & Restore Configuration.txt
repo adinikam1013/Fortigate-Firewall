@@ -1,0 +1,33 @@
+11. Backup & Restore Configuration
+============================================
+Backup Configuration (GUI)
+Step 1: Log in to the FortiGate GUI.
+Step 2: Click Admin (Top Right Corner) → Configuration → Backup.
+Step 3: Configure the Backup
+	Scope              : Global
+	Backup To          : Local PC
+	Encryption         : Optional (Recommended)
+	Password           : Enter if Encryption is Enabled
+Step 4: Click OK.
+Step 5: Save the configuration file to your PC.
+
+Restore Configuration (GUI)
+Step 1: Click Admin (Top Right Corner) → Configuration → Restore.
+Step 2: Configure the Restore	
+	Scope              : Global
+	Restore From       : Local PC
+	Browse             : Select Backup Configuration File
+	Password           : Enter (If Backup is Encrypted)
+Step 3: Click OK.
+Step 4: FortiGate restores the configuration and automatically reboots.
+
+CLI
+================================================================
+Display Current Configuration
+	show
+Display Complete Configuration
+	show full-configuration
+Backup Configuration to TFTP Server
+	execute backup config tftp FGT_Backup.conf 192.168.10.50
+Restore Configuration from TFTP Server
+	execute restore config tftp FGT_Backup.conf 192.168.10.50
