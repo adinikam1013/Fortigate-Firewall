@@ -1,0 +1,27 @@
+9. Configure Default Route
+============================================
+Step 1: Log in to the FortiGate GUI
+Step 2: Navigate to Network → Static Routes
+Step 3: Click Create New
+Step 4: Configure the Default Route
+	Destination        : Subnet
+	Destination IP     : 0.0.0.0/0
+	Gateway            : 192.168.138.2
+	Interface          : port2
+	Distance           : 10 (Default)
+	Priority           : 0 (Default)
+	Status             : Enable
+	Note: Replace 192.168.138.2 with your ISP/Gateway IP.
+
+Step 5: Click OK or Apply
+
+CLI
+================================================================
+config router static
+edit 1
+set dst 0.0.0.0 0.0.0.0
+set gateway 192.168.138.2
+set device "port2"
+set distance 10
+next
+end
